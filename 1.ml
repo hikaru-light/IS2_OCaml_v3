@@ -17,7 +17,16 @@ let unshift ele lis =
 let shift lis =
         match lis with
           | Nil -> Nil
-          | Cell (_, res) -> res
+          | Cell (n, res) -> res
+;;
+
+let rec push ele lis =
+        match lis with
+        | Nil -> Cell (ele, Nil)
+        | Cell (n, rest) -> if rest = Nil then
+                              Cell (n, Cell (ele, Nil))
+                            else
+                              Cell (n, push ele rest)
 ;;
 
 end;;
