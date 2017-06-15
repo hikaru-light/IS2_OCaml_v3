@@ -29,4 +29,13 @@ let rec push ele lis =
                               Cell (n, push ele rest)
 ;;
 
+let rec pop lis =
+        match lis with
+        | Nil -> Nil
+        | Cell (n, rest) -> if rest = Nil then
+                              Nil
+                            else
+                              Cell (n, pop rest)
+
 end;;
+
