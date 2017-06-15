@@ -36,6 +36,16 @@ let rec pop lis =
                               Nil
                             else
                               Cell (n, pop rest)
+;;
+
+let rec size lis =
+        match lis with
+        | Nil -> 0
+        | Cell (n, rest) -> if rest = Nil then
+                              1
+                            else
+                              1 + size rest
+;;
 
 end;;
 
