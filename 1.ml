@@ -47,5 +47,33 @@ let rec size lis =
                               1 + size rest
 ;;
 
-end;;
+let rec get num lis =
+        match (num, lis) with
+        | (1, Cell (l, rest)) -> l
+        | (number, Cell (n, rest)) -> get (number-1) rest
+;;
 
+let rec set tar num lis =
+        match lis with
+        | Nil -> Nil
+        | Cell (n, rest) -> if n=tar then
+                              Cell (num, set tar num rest)
+                            else
+                              Cell (n, set tar num rest)
+;;
+
+let rec remove tar lis =
+        match lis with
+        | Nil -> Nil
+        | Cell (n, rest) -> if n=tar then
+                              remove tar rest
+                            else
+                              Cell (n, remove tar rest)
+;;
+
+let rec concat li1 li2 =
+        match li1 with
+        | Nil -> li2
+        | Cell (n, rest) -> Cell (n, concat rest li2)
+
+end;;
